@@ -18,6 +18,7 @@ This project demonstrates how to use **[DVC (Data Version Control)](https://dvc.
 - Pushing and pulling data between local and remote
 
 ## Getting Started
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12bdeS_ZGzyAGwp3vUrLptK8_-I68MJtb?usp=sharing)
 
 ### Prerequisites
 
@@ -28,8 +29,8 @@ This project demonstrates how to use **[DVC (Data Version Control)](https://dvc.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/itshoang2024/sentiment-dvc-code.git
-cd sentiment-dvc-code
+git clone https://github.com/itshoang2024/sentiment-dvc.git
+cd sentiment-dvc
 ```
 
 ### 2. Install DVC
@@ -38,14 +39,21 @@ cd sentiment-dvc-code
 pip install dvc
 ```
 
-### 3. Pull data from remote
+### 3. Setup Dagshub credentials
+
+```bash
+dvc remote modify dagshub --local user {DASHUB_USER}
+dvc remote modify dagshub --local password {DAGSHUB_TOKEN}
+```
+
+### 4. Pull data from remote
 
 ```bash
 dvc pull
 ```
 
 > Data is stored on DagsHub at:  
-> `https://dagshub.com/itshoang2024/sentiment-dvc-data.dvc`
+> `https://dagshub.com/itshoang2024/sentiment-dvc.dvc`
 
 ### 4. Common DVC Commands
 
@@ -58,15 +66,15 @@ dvc pull
 | `dvc status`        | Check data change status                 |
 | `dvc remote list`   | List configured remotes                  |
 
-## 🔗 Links
+## Links
 
 | Resource              | URL                                                        |
 | --------------------- | ---------------------------------------------------------- |
-| Source Code (GitHub)   | https://github.com/itshoang2024/sentiment-dvc-code        |
-| Data Storage (DagsHub) | https://dagshub.com/itshoang2024/sentiment-dvc-data       |
+| Source Code (GitHub)   | https://github.com/itshoang2024/sentiment-dvc        |
+| Data Storage (DagsHub) | https://dagshub.com/itshoang2024/sentiment-dvc       |
 | DVC Documentation      | https://dvc.org/doc                                       |
 
-## 📝 Notes
+## Notes
 
 - `sentiment.csv` is tracked by DVC, so it is **not** stored directly in Git. Instead, Git only stores the `.dvc` metafile containing metadata (hash, size).
 - Run `dvc pull` after cloning the repo to download the actual data files.
